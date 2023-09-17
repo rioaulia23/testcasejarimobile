@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".DetailPokemonActivity">
+
+    <ImageView
+        android:id="@+id/detail_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:id="@+id/detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/detail_image"
+        android:layout_marginLeft="10dp"
+        android:text="Name pokemon"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/detail_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/detail_image"
+        android:layout_below="@+id/detail_name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="type pokemon"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvAttack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/detail_image"
+        android:layout_below="@+id/detail_type"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="type pokemon"
+        />
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvWeak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/detail_image"
+        android:layout_below="@+id/tvAttack"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="type pokemon"
+        />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/detail_image"
+        android:id="@+id/btn_detail_download"
+        android:text="Download Pokemon Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>
