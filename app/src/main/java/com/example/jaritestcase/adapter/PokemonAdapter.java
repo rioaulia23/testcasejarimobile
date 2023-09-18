@@ -34,8 +34,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     public PokemonAdapter(List<Pokemon> data, Context context) {
         this.pokemonList = data;
         this.context = context;
-//        this.isConnectedToInternet = isConnectedToInternet;
-//        this.dbHelper = new PokemonDatabase(context);
+
     }
 
     @NonNull

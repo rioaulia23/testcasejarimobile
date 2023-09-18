@@ -20,12 +20,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     private List<Pokemon> searchResults;
     private Context context;
-//    private final boolean isConnectedToInternet;
 
     public SearchAdapter(List<Pokemon> searchResults, Context context ) {
         this.searchResults = searchResults;
         this.context = context;
-//        this.isConnectedToInternet = isConnectedToInternet;
     }
 
     @NonNull
@@ -44,9 +42,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                 .load(pokemon.getImages().getSmall())
                 .into(holder.cardImageView);
 
-//        if (isConnectedToInternet) {
-//
-//        }
+
     }
 
     @Override

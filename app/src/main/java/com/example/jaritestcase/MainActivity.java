@@ -6,15 +6,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+
 import com.example.jaritestcase.adapter.PokemonAdapter;
 import com.example.jaritestcase.adapter.SearchAdapter;
 import com.example.jaritestcase.api.ApiClient;
@@ -87,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchDataFromJson() {
-//        binding.textOffline.setVisibility(View.GONE);
-//        progressDialogHelper.show();
         Call<PokemonResponse> call = apiService.searchCards("", 1, pageSize);
         call.enqueue(new Callback<PokemonResponse>() {
             @Override
@@ -106,10 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                     });
-
-//                    cards.addAll(response.body().data);
-//                    pokemonAdapter.setCards(cards);
-//                    pokemonAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -117,51 +108,10 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<PokemonResponse> call, Throwable t) {
 
             }
-//            @Override
-//            public void onResponse(@NonNull Call<PokemonResponse> call, @NonNull Response<PokemonResponse> response) {
-////                isLoading = false;
 //
-//                if (response.isSuccessful()) {
-//                    progressDialogHelper.hide();
-//                    PokemonResponse pokemonResponse = response.body();
-//                    if (pokemonResponse != null) {
-//                        List<Pokemon> cards = pokemonResponse.getData();
-//
-//                        for (Pokemon pokemon : cards) {
-//                            downloadAndSavePokemonImage(pokemon.getImages().getSmall(), pokemon.getId(), pokemon.getName());
-//                        }
-//
-//                        pokemonAdapter.setCards(cards);
-//                        pokemonAdapter.notifyDataSetChanged();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull Call<PokemonResponse> call, @NonNull Throwable t) {
-//                progressDialogHelper.hide();
-//                isLoading = false;
-//                Toast.makeText(Soal5Activity.this, "Gagal mengambil data dari API.", Toast.LENGTH_SHORT).show();
-//                t.printStackTrace();
-//            }
         });
 
-//        recyclerMain.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerMain, int dx, int dy) {
-//                super.onScrolled(recyclerMain, dx, dy);
 //
-//                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerMain.getLayoutManager();
-//                assert layoutManager != null;
-//                int visibleItemCount = layoutManager.getChildCount();
-//                int totalItemCount = layoutManager.getItemCount();
-//                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-//
-//                if (!isLoading && (visibleItemCount + firstVisibleItemPosition) >= totalItemCount) {
-//                    loadNextPageMain();
-//                }
-//            }
-//        });
         binding.recyclerMain.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerMain, int dx, int dy) {
@@ -183,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadNextPageMain() {
-//        progressDialogHelper.show();
         currentPage++;
         isLoading = true;
 
@@ -195,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                 isLoading = false;
 
                 if (response.isSuccessful()) {
-//                    progressDialogHelper.hide();
                     PokemonResponse pokemonResponse = response.body();
                     if (pokemonResponse != null) {
                         List<Pokemon> newCards = pokemonResponse.getData();
@@ -206,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<PokemonResponse> call, @NonNull Throwable t) {
-//                progressDialogHelper.hide();
                 isLoading = false;
                 t.printStackTrace();
             }
@@ -221,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void performSearch(String query) {
-//        progressDialogHelper.show();
 
         Call<PokemonResponse> call = apiService.searchCards("name:" + query, 1, pageSize);
         call.enqueue(new Callback<PokemonResponse>() {
@@ -231,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     binding.recyclerMain.setVisibility(View.GONE);
-//                    progressDialogHelper.hide();
                     PokemonResponse pokemonResponse = response.body();
                     if (pokemonResponse != null) {
                         List<Pokemon> searchResults = pokemonResponse.getData();
@@ -242,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<PokemonResponse> call, @NonNull Throwable t) {
-//                progressDialogHelper.hide();
                 isLoading = false;
                 t.printStackTrace();
             }
@@ -261,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
                 isLoading = false;
 
                 if (response.isSuccessful()) {
-//                    progressDialogHelper.hide();
                     PokemonResponse pokemonResponse = response.body();
                     if (pokemonResponse != null) {
                         List<Pokemon> newCards = pokemonResponse.getData();
@@ -272,14 +215,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<PokemonResponse> call, @NonNull Throwable t) {
-//                progressDialogHelper.hide();
                 isLoading = false;
                 t.printStackTrace();
             }
         });
     }
-
-
 
 
 }
